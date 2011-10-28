@@ -1,0 +1,47 @@
+SmartPrince
+===========
+author     : mr.rshua 
+time       : 2011-10-28
+conditions :
+	First, you need to download prince software from http://www.princexml.com and install it
+	then, puts this plugin in rails/vender/plugins
+===========
+Introduction goes here.
+
+reference to princely plugin!!
+thanks for mbleigh!!
+
+Example
+===========
+in application_controller.rb
+  prince_default_config :stylesheets => ["common_css", "pdf_css"],
+  											:layout => "pdf",
+  											:template_type => ".html.erb" # ".html.erb" is default
+  
+in action you can code like this :
+	def show
+		respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "注文請書",
+        			 :stylesheets => {:add => "other_css", :delete => "pdf_css" },
+        			 :layput => false
+      end
+    end
+	end
+	============
+	or
+	============
+	def show
+		respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "注文請書"
+      end
+    end
+	end	
+
+it is so easy!!
+Example goes here.
+
+Copyright (c) 2011 [name of plugin creator], released under the MIT license
